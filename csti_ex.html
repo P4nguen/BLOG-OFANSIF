@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSTI Example</title>
+</head>
+<body>
+
+<h1>Client Side Template Injection Örneği</h1>
+
+<p id="output"></p>
+
+<script>
+    // Kullanıcıdan gelen veri
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+
+    // Şablon içine doğrudan yerleştiriliyor (zafiyet burada!)
+    const template = `Merhaba, ${name}!`;
+    document.getElementById('output').innerHTML = template;
+</script>
+
+</body>
+</html>
